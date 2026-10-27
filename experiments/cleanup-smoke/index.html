@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>universe - 自作ゲーム&アプリのハブ</title>
+  <style>
+    :root {
+      --bg: #0b1019;
+      --panel: #131c2b;
+      --panel-2: #1a2538;
+      --line: #24324a;
+      --text: #e8eefb;
+      --muted: #8fa1bd;
+      --gold: #ffd166;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: radial-gradient(1200px 800px at 50% 0%, #16233a 0%, var(--bg) 60%);
+      color: var(--text);
+      font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", "Meiryo", system-ui, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 48px 20px;
+    }
+    header { text-align: center; margin-bottom: 36px; }
+    h1 {
+      margin: 0;
+      font-size: clamp(34px, 6vw, 56px);
+      letter-spacing: 4px;
+      background: linear-gradient(180deg, #ffffff, #9db7e8);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .subtitle { color: var(--muted); margin: 8px 0 0; }
+    .cards {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 18px;
+      width: 100%;
+      max-width: 960px;
+    }
+    .cards a {
+      display: block;
+      text-decoration: none;
+      color: var(--text);
+      background: linear-gradient(180deg, var(--panel-2), var(--panel));
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 22px 20px 18px;
+      transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+    }
+    .cards a:hover {
+      transform: translateY(-3px);
+      border-color: var(--gold);
+      box-shadow: 0 14px 34px rgba(0, 0, 0, 0.45);
+    }
+    .tag {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      color: #101722;
+      background: var(--gold);
+      border-radius: 6px;
+      padding: 2px 8px;
+      margin-bottom: 10px;
+    }
+    .cards h2 { margin: 0 0 6px; font-size: 20px; }
+    .cards p { margin: 0; color: var(--muted); font-size: 13.5px; line-height: 1.7; }
+    footer { margin-top: auto; padding-top: 48px; color: var(--muted); font-size: 12px; text-align: center; }
+    code { color: var(--gold); font-family: ui-monospace, Menlo, monospace; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>universe</h1>
+    <p class="subtitle">自作アプリ・ゲームのハブ</p>
+  </header>
+
+  <ul class="cards">
+    <li>
+      <a href="projects/_labs/baseball-game/">
+        <span class="tag">GAME</span>
+        <h2>9球種を読め!</h2>
+        <p>3回勝負の野球ゲーム。9球種と見逃しの駆け引き、カウント制、タイミングバーで長打を狙え。配球メモと得意/苦手バッジでCPUのクセを読んで打ち崩し、守備はゾーン率を見極めて四球に注意!</p>
+      </a>
+    </li>
+    <li>
+      <a href="projects/_samples/janken-game/">
+        <span class="tag">GAME</span>
+        <h2>手を読め!</h2>
+        <p>心理戦じゃんけんゲーム。連勝ボーナスと先読み必殺の読み合い、見切りゲージを満タンにしてCPUの手を見てから選べ。手の履歴と「CPUの読み」メーターを見ながら、出しグセを読まれないように駆け引きを制せ!</p>
+      </a>
+    </li>
+    <li>
+      <a href="projects/_labs/gravity-flip/">
+        <span class="tag">GAME</span>
+        <h2>重力フリップ</h2>
+        <p>タップで上下の重力を反転してトゲを避ける1ボタン2Dアクション。だんだん速くなるステージでコインを集め、自己ベストの距離を目指せ!</p>
+      </a>
+    </li>
+    <li>
+      <a href="graph-cross/">
+        <span class="tag">GAME</span>
+        <h2>グラフクロス</h2>
+        <p>xが自動で進むグラフの上で関数を切り替え、自分の曲線を敵の曲線に交差させて大爆発を起こす2Dアクション。上昇/下降/その他のジャンルから3つ選ぶデッキ、累乗(x^p)・波(sin/cos/三角/角丸/減衰)・指数/対数/S字/山/減速下降の関数ビルダーと2関数の合成カード、リアルタイム軌道プレビューと合成後プレビュー、角度・弱点・連続MULTI、アイテムで追加される非対称グラフ、ボスとステージクリア、軌道プレビュー付きの同ジャンル関数入れ替え3択と強化3択、敵撃破時に縦ビームで撃ち抜くプリズムクロス、アイテム磁石・リバイブ・コンボガード・ボスブレイカー、関数スロットの3択追加、ローカル関数ガチャとレアリティ、3フェーズボスとレーザー/弾幕攻撃、装甲/分裂/ジャマーの特殊敵、図解付き3ステップのチュートリアル、ステージ開始時点からやり直せるリトライ、ライフ無限のストレス解消モードを搭載。BGMと効果音、スマホのタップ操作にも対応!</p>
+      </a>
+    </li>
+    <li>
+      <a href="projects/_labs/unknown-word-deal/">
+        <span class="tag">GAME</span>
+        <h2>未知語de交渉</h2>
+        <p>品物は見えている。商人の短い文に潜む文法語と意図を読み、差し出す・受け取る・断るを選ぶスマホ向け言語交渉ゲーム。当たれば+10硬貨、外れれば+3硬貨。迷ったら2硬貨で意味を確認。3人目は言葉としぐさが食い違う。最後は契約書の主語を読んで署名/拒否。3〜5分。</p>
+      </a>
+    </li>
+    <li>
+      <a href="projects/_labs/observer-game/">
+        <span class="tag">GAME</span>
+        <h2>観測者</h2>
+        <p>敵の動きの隠れた規則を観測し、次の一手を予測するスマホ向け推理ゲーム。観測・予測・灯を動かす実験で6つの候補を絞る。外すとライフが減り、規則が変わる。12ターンで何回当てられるか。約5分。</p>
+      </a>
+    </li>
+    <li>
+      <a href="exponential-balls/">
+        <span class="tag">GAME</span>
+        <h2>BLOOM</h2>
+        <p>ボールが2,048まで倍々に増えるAUTO、上部ラインで2個に増えるFRAME、ゴーストと3ゲートを競う60秒RACEの3モードを載せた縦画面オーディオビジュアル。タップで押し返し/加速/ブレーキ/ステア。120 BPMのプロシージャル音楽。</p>
+      </a>
+    </li>
+  </ul>
+
+  <footer>
+    ローカルで動かすには <code>python3 -m http.server</code> をこのフォルダで実行して開く（各ゲームは依存ゼロの静的ファイル）。
+  </footer>
+</body>
+</html>

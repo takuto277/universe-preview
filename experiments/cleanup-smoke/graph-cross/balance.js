@@ -1,0 +1,97 @@
+/* balance.js : 難易度・強化上限・ステージ進行の数値を1か所に集約 */
+(function (root, factory) {
+  'use strict';
+  var api = factory();
+  if (typeof module !== 'undefined' && module.exports) {
+    module.exports = api;
+  } else {
+    root.GraphBalance = api;
+  }
+})(typeof globalThis !== 'undefined' ? globalThis : this, function () {
+  'use strict';
+
+  return {
+    BASE_SPEED: 220,
+    MAX_SPEED: 380,
+    SPEED_RAMP: 2.2,
+    RAMP_TIME: 50,
+    PLAYER_HALF: 12,
+    HIT_DIST: 15,
+    COMBO_WINDOW: 2.6,
+    HEAL_COMBO: 5,
+    MAX_DT: 0.05,
+    MAX_EVENTS: 120,
+    MAX_HP: 3,
+    MAX_PLAYER_VY: 1600,
+    WAVE_AMPLITUDE: 68,
+
+    STAGE_TARGET_BASE: 6,
+    STAGE_TARGET_PER_STAGE: 2,
+    STAGE_DIFFICULTY_STEP: 0.035,
+    STAGE_DIFFICULTY_MAX: 0.28,
+    STAGE_SPEED_STEP: 8,
+    STAGE_SPEED_MAX: 32,
+    BOSS_BASE_HP: 16,
+    BOSS_HP_PER_STAGE: 4,
+    BOSS_MIN_HP: 8,
+    BOSS_MOVE_RATE: 0.22,
+    BOSS_ATTACK_FIRST: 2.0,
+    BOSS_WARNING: 0.8,
+    BOSS_LASER_TIME: 0.26,
+    BOSS_LASER_HALF: 24,
+    BOSS_SHOT_SPEED: 190,
+    BOSS_SHOT_RADIUS: 8,
+    BOSS_SHOT_LIFE: 4,
+    BOSS_PLAYER_INVULN: 1.2,
+    BOSS_PHASE_INVULN: 1.0,
+    BOSS_COOLDOWN_P1: 4.6,
+    BOSS_COOLDOWN_P2: 3.8,
+    BOSS_COOLDOWN_P3: 3.0,
+
+    ENEMY_SPECIAL_BASE: 0.08,
+    ENEMY_SPECIAL_PER_STAGE: 0.025,
+    ENEMY_SPECIAL_MAX: 0.32,
+    ARMOR_HP: 2,
+    ARMOR_INVULN: 0.45,
+    SPLIT_CHILD_SCALE: 0.55,
+    JAM_TIME: 3.0,
+    STAGE_CLEAR_SCORE: 1000,
+
+    UPGRADE_MAX_LIFE: 5,
+    UPGRADE_MAX_HIT_BONUS: 6,
+    UPGRADE_HIT_STEP: 2,
+    UPGRADE_MAX_COMBO_WINDOW: 4.6,
+    UPGRADE_COMBO_STEP: 0.8,
+    UPGRADE_MAX_SCORE_MULT: 2,
+    UPGRADE_SCORE_STEP: 0.2,
+    UPGRADE_MAX_BOSS_REDUCTION: 12,
+    UPGRADE_BOSS_STEP: 3,
+    UPGRADE_BONUS_SCORE: 3000,
+    BEAM_COOLDOWN: 0.65,
+    BEAM_SCORE: 120,
+    MAGNET_RADIUS: 240,
+    MAGNET_SPEED: 520,
+
+    MULTI_WINDOW: 0.55,
+    MULTI_MAX: 5,
+    MULTI_STEP: 0.35,
+
+    GACHA_COST: 100,
+    GACHA_START_POINTS: 300,
+    GACHA_STAGE_REWARD: 100,
+    GACHA_RARE_PITY: 10,
+    GACHA_EPIC_PITY: 20,
+
+    ITEM_FIRST_DELAY: 4.5,
+    ITEM_INTERVAL_MIN: 5,
+    ITEM_INTERVAL_MAX: 8,
+    ITEM_RADIUS: 12,
+    ITEM_SCORE: 500,
+
+    ALLY_LIFESPAN: 9,
+    ALLY_MAX: 2,
+    ALLY_HIT_DIST: 12,
+    ALLY_BOSS_COOLDOWN: 0.8,
+    ALLY_SCORE: 80
+  };
+});
