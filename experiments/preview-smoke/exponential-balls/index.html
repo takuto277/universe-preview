@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#05080e" />
+  <meta name="description" content="BLOOM is a vertical audiovisual game where balls double with the music. Choose AUTO or FRAME." />
+  <title>BLOOM</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="app">
+    <canvas id="canvas"></canvas>
+
+    <div id="hud" class="hud is-hidden">
+      <div class="hud-top">
+        <div class="hud-title">
+          <p class="eyebrow">EXPONENTIAL BLOOM</p>
+          <h1>BLOOM</h1>
+          <p id="mode-name" class="mode-name">AUTO</p>
+        </div>
+        <div class="hud-actions">
+          <button id="btn-home" class="sound-btn" type="button">HOME</button>
+          <button id="btn-mute" class="sound-btn" type="button">SOUND ON</button>
+        </div>
+      </div>
+
+      <div class="count-wrap">
+        <span id="count" class="count">1</span>
+        <span class="count-label">BALLS</span>
+      </div>
+
+      <div class="meta">
+        <span id="cycle">CYCLE 1</span>
+        <span id="stat">BAR 1 / 12</span>
+        <span id="bpm">120 BPM</span>
+      </div>
+      <div class="bar-track"><i id="bar-fill"></i></div>
+      <p id="hint" class="hint">DOUBLE ON EVERY BAR · TAP TO PUSH</p>
+    </div>
+
+    <div id="start-overlay" class="overlay visible">
+      <div class="start-content">
+        <p class="eyebrow">EXPONENTIAL BLOOM</p>
+        <h1>BLOOM</h1>
+        <p class="lead">Every ball doubles. Pick a mode to start.</p>
+
+        <p class="mode-prompt">SELECT MODE</p>
+        <div class="mode-grid" role="group" aria-label="Game mode">
+          <button id="mode-auto" class="mode-card selected" type="button" aria-pressed="true">
+            <span class="mode-head"><span class="mode-tag">AUTO</span><span id="mode-auto-state" class="mode-play">SELECTED</span></span>
+            <span class="mode-title">BAR BY BAR</span>
+            <span class="mode-desc">A new ball every bar, locked to the beat. 1 to 2,048 in 12 bars.</span>
+          </button>
+          <button id="mode-frame" class="mode-card" type="button" aria-pressed="false">
+            <span class="mode-head"><span class="mode-tag">FRAME</span><span id="mode-frame-state" class="mode-play">SELECT</span></span>
+            <span class="mode-title">TOUCH &amp; DOUBLE</span>
+            <span class="mode-desc">Balls drift in all directions. Touch the top line to split one into two. The copies dive back down and darken.</span>
+          </button>
+        </div>
+
+        <button id="btn-start" class="primary big" type="button">START AUTO</button>
+
+        <svg class="start-art" viewBox="0 0 260 150" role="img" aria-label="Balls doubling from one to many">
+          <circle cx="54" cy="94" r="15" fill="#6fd6c3" opacity="0.9" />
+          <circle cx="105" cy="76" r="11" fill="#f4c96b" opacity="0.9" />
+          <circle cx="105" cy="112" r="11" fill="#f4c96b" opacity="0.9" />
+          <circle cx="171" cy="58" r="8" fill="#8fe5d6" />
+          <circle cx="171" cy="82" r="8" fill="#8fe5d6" />
+          <circle cx="171" cy="106" r="8" fill="#8fe5d6" />
+          <circle cx="171" cy="130" r="8" fill="#8fe5d6" />
+          <path d="M64 94 H88 M123 76 H151 M123 112 H151" stroke="#93a6c4" stroke-width="2" stroke-dasharray="3 4" opacity="0.6" />
+          <circle cx="218" cy="82" r="22" fill="none" stroke="#f4c96b" stroke-width="1.5" opacity="0.5" />
+          <circle cx="218" cy="82" r="30" fill="none" stroke="#6fd6c3" stroke-width="1" opacity="0.3" />
+        </svg>
+
+        <button id="btn-sound" class="link-btn" type="button">SOUND: ON</button>
+        <p class="tiny">120 BPM / 24 s cycle. Sound on.</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="engine.js"></script>
+  <script src="audio.js"></script>
+  <script src="renderer.js"></script>
+  <script src="ui.js"></script>
+  <script src="game.js"></script>
+</body>
+</html>
