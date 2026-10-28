@@ -162,6 +162,8 @@
 
   function onKey(e) {
     if (!e) return;
+    var tag = e.target && e.target.tagName;
+    if (tag === 'BUTTON' || tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT') return;
     var k = e.key || '';
     if (k === ' ' || k === 'Spacebar' || k === 'Enter' || k === 'ArrowDown' || k === 's' || k === 'S') {
       if (e.preventDefault) e.preventDefault();
@@ -565,7 +567,10 @@
 
   /* ===== 初期化 ===== */
   function updateSoundButton() {
-    if (els.btnSound) els.btnSound.textContent = muted ? '音 OFF' : '音 ON';
+    if (els.btnSound) {
+      els.btnSound.textContent = muted ? '音 OFF' : '音 ON';
+      els.btnSound.setAttribute('aria-pressed', muted ? 'false' : 'true');
+    }
   }
 
   function init() {
